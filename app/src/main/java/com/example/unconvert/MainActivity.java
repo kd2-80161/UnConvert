@@ -2,6 +2,7 @@ package com.example.unconvert;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         editText = findViewById(R.id.editText);
         button.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v)
             {
@@ -28,7 +30,11 @@ public class MainActivity extends AppCompatActivity {
               //Toast.makeText(MainActivity.this, "Hi click listener worked!", Toast.LENGTH_SHORT).show();
                     int kg = Integer.parseInt(s);
                     double pound = 2.205 * kg;
-                    textView.setText("The corresponding value in Pounds is " + pound);
+                    @SuppressLint("DefaultLocale")
+                    String s1=String.format("The corresponding value is %5.2f",pound);
+                    textView.setText(s1);
+
+
                 }
                 catch (Exception e)
                 {
